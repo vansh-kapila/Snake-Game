@@ -125,22 +125,22 @@ function handleTouchMove(evt) {
 
     if (Math.abs(xDiff) > Math.abs(yDiff)) {/*most significant*/
         if (xDiff > 0) {
-            velocity.x = 1;
+            velocity.x = -1;
             velocity.y = 0;
             document.querySelector('snake').style.margin = "5px";
         } else {
-            velocity.x = -1;
+            velocity.x = 1;
             velocity.y = 0;
             document.querySelector('snake').style.margin = "5px";
         }
     } else {
         if (yDiff > 0) {
             velocity.x = 0;
-            velocity.y = 1;
+            velocity.y = -1;
             document.querySelector('snake').style.margin = "5px";
         } else {
             velocity.x = 0;
-            velocity.y = -1;
+            velocity.y = 1;
             document.querySelector('snake').style.margin = "5px";
         }
     }
