@@ -14,20 +14,41 @@
 }
 
 #board {
-    background-image: linear-gradient(153.4deg, rgba(160, 250, 141, 1) 25.4%, rgba(253, 217, 182, 1) 59%);
+    background-image: linear-gradient(129.1deg, rgba(243, 199, 83, 1) 26.8%, rgba(18, 235, 207, 1) 114.1%);
     width: 90vmin;
     height: 90vmin;
     display: grid;
-    grid-template-rows: repeat(20, 1fr);
-    grid-template-columns: repeat(20, 1fr);
-    border: 15px solid rgb(11, 89, 2);
-    border: 10px solid rgb(63, 84, 2);
+    grid-template-rows: repeat(25, 1fr);
+    grid-template-columns: repeat(25, 1fr);
+    border: 12px solid rgb(87, 64, 1);
+    margin: 0 auto;
     overflow-y: hidden;
     overflow-x: hidden;
 }
 
+#scoreBox {
+    position: absolute;
+    top: 9px;
+    right: 200px;
+    font-size: 39px;
+    font-weight: bold;
+    font-family: 'Grape Nuts', serif;
+    color: rgb(169, 232, 255);
+    font-weight: bold;
+}
+
+#hiscoreBox {
+    position: absolute;
+    top: 59px;
+    right: 170px;
+    font-size: 39px;
+    font-weight: bold;
+    font-family: 'Grape Nuts', serif;
+    color: rgb(255, 185, 185);
+}
+
 .snake {
-    background-color: rgb(6, 174, 6);
+    background: linear-gradient(rgb(0, 106, 0), rgb(118, 205, 12));
     background-position: 50%;
     border-radius: 8px;
     border-top: 5px solid rgb(0, 97, 7);
@@ -35,7 +56,7 @@
 
 .head {
     background-color: rgb(42, 67, 5);
-    border-radius: 50px;
+    border-radius: 10px;
     background-size: 200%;
     background-repeat: no-repeat;
 }
@@ -49,7 +70,21 @@
 @media (max-width:480px) {
     #body {
         min-height: 92vh;
-        background-image: linear-gradient();
-        background-size: 90vw 92vh;
+        background-image: linear-gradient(109.6deg, rgba(61, 245, 167, 1) 11.2%, rgba(9, 111, 224, 1) 91.1%);
+        background-size: 100vw 92vh;
+    }
+
+    #board {
+        background-image: linear-gradient(129.1deg, rgba(243, 199, 83, 1) 26.8%, rgba(18, 235, 207, 1) 114.1%);
+        grid-template-rows: repeat(15, 1fr);
+        grid-template-columns: repeat(15, 1fr);
+    }
+
+    #scoreBox {
+        color: rgb(0, 8, 10);
+    }
+
+    #hiscoreBox {
+        color: rgb(52, 0, 0);
     }
 }

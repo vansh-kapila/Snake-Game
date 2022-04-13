@@ -3,10 +3,16 @@ let snakearr = [
     { x: 5, y: 6 }
 ];
 let food = { x: 8, y: 6 };
-let speed = 6;
+let speed = 12;
 let score = 0;
 let lastPaintTime = 0;
 const music = new Audio('song.mp3');
+const mediaQuery = window.matchMedia('(max-width: 480px)');
+const eat = new Audio('snake-eat.wav');
+const move = new Audio('move.mp3');
+if (mediaQuery.matches) {
+    speed = 7;
+}
 function main(ctime) {
     window.requestAnimationFrame(main);
     //console.log(ctime)
@@ -22,7 +28,11 @@ function touches(snake) {
             return true;
         }
     }
-    if (snake[0].x > 20 || snake[0].y > 20 || snake[0].y < 0 || snake[0].x < 0) {
+    n = 25;
+    if (mediaQuery.matches) {
+        n = 15;
+    }
+    if (snake[0].x > n || snake[0].y > n || snake[0].y < 0 || snake[0].x < 0) {
         return true;
     }
 }
@@ -34,11 +44,32 @@ function Game() {
         snakearr = [{ x: 5, y: 6 }];
         music.play();
         score = 0;
-        speed = 6;
+        speed = 12;
+        if (mediaQuery.matches) {
+            speed = 7;
+        }
+        score = 0;
+        scoreval = JSON.parse(score);
+        scoreBox.innerHTML = "Score: " + score;
     }
     if (snakearr[0].x == food.x && snakearr[0].y == food.y) {
+        score += 1;
+        scoreval = JSON.parse(score);
+        scoreBox.innerHTML = "Score: " + score;
+        eat.play();
+        if (score > hiscoreval) {
+            hiscore = score;
+            hiscoreval = JSON.parse(hiscore);
+            hiscoreBox.innerHTML = "HiScore: " + hiscore;
+        }
         snakearr.unshift({ x: snakearr[0].x + velocity.x, y: snakearr[0].y + velocity.y });
-        food = { x: 2 + Math.round(17 * Math.random()), y: 2 + Math.round(17 * Math.random()) };
+        var x = window.matchMedia("(max-width: 700px)");
+        n = 23;
+        const mediaQuery = window.matchMedia('(max-width: 480px)')
+        if (mediaQuery.matches) {
+            n = 13;
+        }
+        food = { x: 2 + Math.round(n * Math.random()), y: 2 + Math.round(n * Math.random()) };
         speed += 0.8;
     }
 
@@ -52,7 +83,6 @@ function Game() {
         snakeElement = document.createElement('div');
         snakeElement.style.gridRowStart = e.y;
         snakeElement.style.gridColumnStart = e.x;
-        snakeElement.classList.add('snake')
         if (index === 0) {
             snakeElement.classList.add('head');
         }
@@ -68,6 +98,16 @@ function Game() {
     board.appendChild(foodElement);
 }
 
+let hiscore = localStorage.getItem("hiscore");
+if (hiscore === null) {
+    hiscoreval = 0;
+    localStorage.setItem("hiscore", JSON.stringify(hiscoreval));
+}
+else {
+    hiscoreval = JSON.parse(hiscore);
+    hiscoreBox.innerHTML = "HiScore: " + hiscore;
+}
+
 window.requestAnimationFrame(main);
 window.addEventListener('keydown', e => {
     velocity = { x: 0, y: 1 };
@@ -76,21 +116,25 @@ window.addEventListener('keydown', e => {
         velocity.x = 0;
         velocity.y = -1;
         document.querySelector('snake').style.margin = "5px";
+        move.play();
     }
     if (e.key === "ArrowLeft") {
         velocity.x = -1;
         velocity.y = 0;
         document.querySelector('snake').style.margin = "5px";
+        move.play();
     }
     if (e.key === "ArrowRight") {
         velocity.x = 1;
         velocity.y = 0;
         document.querySelector('snake').style.margin = "5px";
+        move.play();
     }
     if (e.key === "ArrowDown") {
         velocity.x = 0;
         velocity.y = 1;
         document.querySelector('snake').style.margin = "5px";
+        move.play();
     }
 });
 
@@ -129,20 +173,24 @@ function handleTouchMove(evt) {
             velocity.x = -1;
             velocity.y = 0;
             document.querySelector('snake').style.margin = "5px";
+            move.play();
         } else {
             velocity.x = 1;
             velocity.y = 0;
             document.querySelector('snake').style.margin = "5px";
+            move.play();
         }
     } else {
         if (yDiff > 0) {
             velocity.x = 0;
             velocity.y = -1;
             document.querySelector('snake').style.margin = "5px";
+            move.play();
         } else {
             velocity.x = 0;
             velocity.y = 1;
             document.querySelector('snake').style.margin = "5px";
+            move.play();
         }
     }
     /* reset values */
