@@ -60,6 +60,7 @@ function Game() {
         if (score > hiscoreval) {
             hiscore = score;
             hiscoreval = JSON.parse(hiscore);
+            localStorage.setItem("hiscore", JSON.stringify(hiscoreval));
             hiscoreBox.innerHTML = "HiScore: " + hiscore;
         }
         snakearr.unshift({ x: snakearr[0].x + velocity.x, y: snakearr[0].y + velocity.y });
@@ -105,6 +106,7 @@ if (hiscore === null) {
 }
 else {
     hiscoreval = JSON.parse(hiscore);
+    localStorage.setItem("hiscore", JSON.stringify(hiscoreval));
     hiscoreBox.innerHTML = "HiScore: " + hiscore;
 }
 
