@@ -113,6 +113,7 @@ function handleTouchStart(evt) {
 };
 
 function handleTouchMove(evt) {
+    window.scrollTo(0, 1);
     if (!xDown || !yDown) {
         return;
     }
