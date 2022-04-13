@@ -3,10 +3,14 @@ let snakearr = [
     { x: 5, y: 6 }
 ];
 let food = { x: 8, y: 6 };
-let speed = 6;
+let speed = 12;
 let score = 0;
 let lastPaintTime = 0;
 const music = new Audio('song.mp3');
+const mediaQuery = window.matchMedia('(max-width: 480px)');
+if (mediaQuery.matches) {
+    speed = 7;
+}
 function main(ctime) {
     window.requestAnimationFrame(main);
     //console.log(ctime)
@@ -22,7 +26,11 @@ function touches(snake) {
             return true;
         }
     }
-    if (snake[0].x > 20 || snake[0].y > 20 || snake[0].y < 0 || snake[0].x < 0) {
+    n = 25;
+    if (mediaQuery.matches) {
+        n = 15;
+    }
+    if (snake[0].x > n || snake[0].y > n || snake[0].y < 0 || snake[0].x < 0) {
         return true;
     }
 }
@@ -34,11 +42,20 @@ function Game() {
         snakearr = [{ x: 5, y: 6 }];
         music.play();
         score = 0;
-        speed = 6;
+        speed = 12;
+        if (mediaQuery.matches) {
+            speed = 7;
+        }
     }
     if (snakearr[0].x == food.x && snakearr[0].y == food.y) {
         snakearr.unshift({ x: snakearr[0].x + velocity.x, y: snakearr[0].y + velocity.y });
-        food = { x: 2 + Math.round(17 * Math.random()), y: 2 + Math.round(17 * Math.random()) };
+        var x = window.matchMedia("(max-width: 700px)");
+        n = 23;
+        const mediaQuery = window.matchMedia('(max-width: 480px)')
+        if (mediaQuery.matches) {
+            n = 13;
+        }
+        food = { x: 2 + Math.round(n * Math.random()), y: 2 + Math.round(n * Math.random()) };
         speed += 0.8;
     }
 
@@ -52,7 +69,6 @@ function Game() {
         snakeElement = document.createElement('div');
         snakeElement.style.gridRowStart = e.y;
         snakeElement.style.gridColumnStart = e.x;
-        snakeElement.classList.add('snake')
         if (index === 0) {
             snakeElement.classList.add('head');
         }
