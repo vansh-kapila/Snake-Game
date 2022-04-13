@@ -47,7 +47,7 @@
 
 @media (max-width:480px) {
     #body {
-        min-height: 92vh;
-        background-size: 90vw 92vh;
+        min-height: 90vh;
+        background-size: 90vw 90vh;
     }
 }
