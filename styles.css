@@ -4,7 +4,7 @@
 }
 
 #body {
-    background: url(test1.gif);
+    background: linear-gradient(rgb(1, 64, 1), rgb(30, 225, 30));
     min-height: 100vh;
     background-size: 100vw 100vh;
     display: flex;
@@ -20,10 +20,6 @@
     grid-template-rows: repeat(20, 1fr);
     grid-template-columns: repeat(20, 1fr);
     border: 10px solid rgb(63, 84, 2);
-}
-
-#board div:nth-child() {
-    background-color: red;
 }
 
 .snake {
