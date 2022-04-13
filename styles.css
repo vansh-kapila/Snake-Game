@@ -49,6 +49,7 @@
 @media (max-width:480px) {
     #body {
         min-height: 92vh;
+        background-image: linear-gradient();
         background-size: 90vw 92vh;
     }
 }
