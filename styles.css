@@ -29,22 +29,22 @@
 #scoreBox {
     position: absolute;
     top: 9px;
-    right: 200px;
+    right: 185px;
     font-size: 39px;
     font-weight: bold;
-    font-family: 'Grape Nuts', serif;
-    color: rgb(169, 232, 255);
+    font-family: 'Permanent Marker', serif;
+    color: rgb(103, 255, 242);
     font-weight: bold;
 }
 
 #hiscoreBox {
     position: absolute;
     top: 59px;
-    right: 170px;
+    right: 135px;
     font-size: 39px;
     font-weight: bold;
-    font-family: 'Grape Nuts', serif;
-    color: rgb(255, 185, 185);
+    font-family: 'Permanent Marker', serif;
+    color: rgb(189, 255, 74);
 }
 
 .snake {
@@ -86,11 +86,5 @@
 
     #hiscoreBox {
         color: rgb(52, 0, 0);
-    }
-
-    #board {
-        background-image: linear-gradient(129.1deg, rgba(243, 199, 83, 1) 26.8%, rgba(18, 235, 207, 1) 114.1%);
-        grid-template-rows: repeat(15, 1fr);
-        grid-template-columns: repeat(15, 1fr);
     }
 }
