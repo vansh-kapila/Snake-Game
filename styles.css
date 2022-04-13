@@ -20,6 +20,8 @@
     grid-template-rows: repeat(20, 1fr);
     grid-template-columns: repeat(20, 1fr);
     border: 10px solid rgb(63, 84, 2);
+    overflow-y: hidden;
+    overflow-x: hidden;
 }
 
 .snake {
