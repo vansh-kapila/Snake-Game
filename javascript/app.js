@@ -39,7 +39,7 @@ function Game() {
     if (snakearr[0].x == food.x && snakearr[0].y == food.y) {
         snakearr.unshift({ x: snakearr[0].x + velocity.x, y: snakearr[0].y + velocity.y });
         food = { x: 2 + Math.round(17 * Math.random()), y: 2 + Math.round(17 * Math.random()) };
-        speed += 0.5;
+        speed += 0.8;
     }
 
     for (let i = snakearr.length - 2; i >= 0; i--) {
@@ -92,4 +92,60 @@ window.addEventListener('keydown', e => {
         velocity.y = 1;
         document.querySelector('snake').style.margin = "5px";
     }
-}); 
+});
+
+//swipe support
+document.addEventListener('touchstart', handleTouchStart, false);
+document.addEventListener('touchmove', handleTouchMove, false);
+
+var xDown = null;
+var yDown = null;
+
+function getTouches(evt) {
+    return evt.touches ||             // browser API
+        evt.originalEvent.touches; // jQuery
+}
+
+function handleTouchStart(evt) {
+    const firstTouch = getTouches(evt)[0];
+    xDown = firstTouch.clientX;
+    yDown = firstTouch.clientY;
+};
+
+function handleTouchMove(evt) {
+    if (!xDown || !yDown) {
+        return;
+    }
+
+    var xUp = evt.touches[0].clientX;
+    var yUp = evt.touches[0].clientY;
+
+    var xDiff = xDown - xUp;
+    var yDiff = yDown - yUp;
+
+    if (Math.abs(xDiff) > Math.abs(yDiff)) {/*most significant*/
+        if (xDiff > 0) {
+            velocity.x = 1;
+            velocity.y = 0;
+            document.querySelector('snake').style.margin = "5px";
+        } else {
+            velocity.x = -1;
+            velocity.y = 0;
+            document.querySelector('snake').style.margin = "5px";
+        }
+    } else {
+        if (yDiff > 0) {
+            velocity.x = 0;
+            velocity.y = 1;
+            document.querySelector('snake').style.margin = "5px";
+        } else {
+            velocity.x = 0;
+            velocity.y = -1;
+            document.querySelector('snake').style.margin = "5px";
+        }
+    }
+    /* reset values */
+    xDown = null;
+    yDown = null;
+};
+
