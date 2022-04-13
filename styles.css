@@ -1,10 +1,11 @@
 * {
     padding: 0;
     margin: 0;
+    overscroll-behavior: contain;
 }
 
 #body {
-    background: url(test1.gif);
+    background: url(background.jpg);
     min-height: 100vh;
     background-size: 100vw 100vh;
     display: flex;
@@ -13,17 +14,15 @@
 }
 
 #board {
-    background: linear-gradient(rgb(255, 112, 83), rgb(255, 165, 62));
+    background-image: linear-gradient(153.4deg, rgba(160, 250, 141, 1) 25.4%, rgba(253, 217, 182, 1) 59%);
     width: 90vmin;
     height: 90vmin;
     display: grid;
     grid-template-rows: repeat(20, 1fr);
     grid-template-columns: repeat(20, 1fr);
-    border: 10px solid rgb(63, 84, 2);
-}
-
-#board div:nth-child() {
-    background-color: red;
+    border: 15px solid rgb(11, 89, 2);
+    overflow-y: hidden;
+    overflow-x: hidden;
 }
 
 .snake {
@@ -44,4 +43,11 @@
     background-image: url(apple.png);
     background-size: 90%;
     background-repeat: no-repeat;
+}
+
+@media (max-width:480px) {
+    #body {
+        min-height: 96vh;
+        background-size: 90vw 100vh;
+    }
 }
