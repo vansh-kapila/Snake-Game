@@ -60,6 +60,7 @@ function Game() {
         if (score > hiscoreval) {
             hiscore = score;
             hiscoreval = JSON.parse(hiscore);
+            localStorage.setItem("hiscore", JSON.stringify(hiscoreval));
             hiscoreBox.innerHTML = "HiScore: " + hiscore;
         }
         snakearr.unshift({ x: snakearr[0].x + velocity.x, y: snakearr[0].y + velocity.y });
@@ -70,7 +71,18 @@ function Game() {
             n = 13;
         }
         food = { x: 2 + Math.round(n * Math.random()), y: 2 + Math.round(n * Math.random()) };
-        speed += 0.8;
+        if (!mediaQuery.matches && speed <= 24) {
+            speed += 0.7;
+        }
+        else if (!mediaQuery.matches && speed > 24) {
+            speed += 0.175;
+        }
+        if (mediaQuery.matches && speed <= 19) {
+            speed += 0.6;
+        }
+        else if (mediaQuery.matches && speed > 19) {
+            speed += 0.175;
+        }
     }
 
     for (let i = snakearr.length - 2; i >= 0; i--) {
@@ -105,6 +117,7 @@ if (hiscore === null) {
 }
 else {
     hiscoreval = JSON.parse(hiscore);
+    localStorage.setItem("hiscore", JSON.stringify(hiscoreval));
     hiscoreBox.innerHTML = "HiScore: " + hiscore;
 }
 
