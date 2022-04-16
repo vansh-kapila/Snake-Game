@@ -71,17 +71,11 @@ function Game() {
             n = 13;
         }
         food = { x: 2 + Math.round(n * Math.random()), y: 2 + Math.round(n * Math.random()) };
-        if (!mediaQuery.matches && speed <= 24) {
-            speed += 0.7;
+        if (mediaQuery.matches) {
+            speed += 0.5;
         }
-        else if (!mediaQuery.matches && speed > 24) {
-            speed += 0.175;
-        }
-        if (mediaQuery.matches && speed <= 19) {
+        else {
             speed += 0.6;
-        }
-        else if (mediaQuery.matches && speed > 19) {
-            speed += 0.175;
         }
     }
 

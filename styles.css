@@ -39,8 +39,8 @@
 
 #highscoreBox {
     position: absolute;
-    top: 15%;
-    right: 10%;
+    top: 5%;
+    left: 10%;
     font-size: 39px;
     font-weight: bold;
     font-family: 'Acme', serif;
@@ -72,7 +72,8 @@
     #body {
         background-color: #52ACFF;
         background-image: linear-gradient(90deg, #52ACFF 25%, #5fef74 100%);
-        background-size: 100vw 93%;
+        min-height: 92vh;
+        background-size: 100vw 92vmin;
     }
 
     #board {
@@ -85,7 +86,7 @@
     #scoreBox {
         color: rgb(26, 80, 5);
         font-size: 35px;
-        top: 14%;
+        top: 12%;
         left: 10%;
     }
 
