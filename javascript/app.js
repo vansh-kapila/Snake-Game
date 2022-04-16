@@ -77,6 +77,7 @@ function Game() {
         else {
             speed += 0.6;
         }
+        console.log(speed);
     }
 
     for (let i = snakearr.length - 2; i >= 0; i--) {
@@ -122,25 +123,21 @@ window.addEventListener('keydown', e => {
     if (e.key == "ArrowUp") {
         velocity.x = 0;
         velocity.y = -1;
-        document.querySelector('snake').style.margin = "5px";
         move.play();
     }
     if (e.key === "ArrowLeft") {
         velocity.x = -1;
         velocity.y = 0;
-        document.querySelector('snake').style.margin = "5px";
         move.play();
     }
     if (e.key === "ArrowRight") {
         velocity.x = 1;
         velocity.y = 0;
-        document.querySelector('snake').style.margin = "5px";
         move.play();
     }
     if (e.key === "ArrowDown") {
         velocity.x = 0;
         velocity.y = 1;
-        document.querySelector('snake').style.margin = "5px";
         move.play();
     }
 });
@@ -179,24 +176,20 @@ function handleTouchMove(evt) {
         if (xDiff > 0) {
             velocity.x = -1;
             velocity.y = 0;
-            document.querySelector('snake').style.margin = "5px";
             move.play();
         } else {
             velocity.x = 1;
             velocity.y = 0;
-            document.querySelector('snake').style.margin = "5px";
             move.play();
         }
     } else {
         if (yDiff > 0) {
             velocity.x = 0;
             velocity.y = -1;
-            document.querySelector('snake').style.margin = "5px";
             move.play();
         } else {
             velocity.x = 0;
             velocity.y = 1;
-            document.querySelector('snake').style.margin = "5px";
             move.play();
         }
     }
