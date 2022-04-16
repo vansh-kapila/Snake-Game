@@ -5,7 +5,7 @@
 }
 
 #body {
-    background: url(background.jpg);
+    background: url(resources/background.jpg);
     min-height: 100vh;
     background-size: 100vw 100vh;
     display: flex;
@@ -63,7 +63,7 @@
 }
 
 .food {
-    background-image: url(apple.png);
+    background-image: url(resources/apple.png);
     background-size: 90%;
     background-repeat: no-repeat;
 }

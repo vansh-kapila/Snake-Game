@@ -6,9 +6,9 @@ let food = { x: 8, y: 6 };
 let speed = 12;
 let score = 0;
 let lastPaintTime = 0;
-const music = new Audio('song.mp3');
+const music = new Audio('resources/song.mp3');
 const mediaQuery = window.matchMedia('(max-width: 480px)');
-const eat = new Audio('snake-eat.wav');
+const eat = new Audio('resources/snake-eat.wav');
 if (mediaQuery.matches) {
     speed = 7;
 }
