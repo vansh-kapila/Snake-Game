@@ -63,7 +63,7 @@
 }
 
 .food {
-    background-image: url(resources/apple.png);
+    background-image: url(Resources/apple.png);
     background-size: 90%;
     background-repeat: no-repeat;
 }
