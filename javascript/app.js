@@ -4,7 +4,7 @@ let snakearr = [
 ];
 let food = { x: 8, y: 6 };
 let speed = 12;
-let score = 19;
+let score = 0;
 let lastPaintTime = 0;
 const music = new Audio('song.mp3');
 const mediaQuery = window.matchMedia('(max-width: 480px)');
