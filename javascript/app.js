@@ -57,11 +57,11 @@ function Game() {
         scoreval = JSON.parse(score);
         scoreBox.innerHTML = "Score: " + score;
         eat.play();
-        if (score > hiscoreval) {
-            hiscore = score;
-            hiscoreval = JSON.parse(hiscore);
-            localStorage.setItem("hiscore", JSON.stringify(hiscoreval));
-            hiscoreBox.innerHTML = "HiScore: " + hiscore;
+        if (score > highscoreval) {
+            highscore = score;
+            highscoreval = JSON.parse(highscore);
+            localStorage.setItem("highscore", JSON.stringify(highscoreval));
+            highscoreBox.innerHTML = "HighScore: " + highscore;
         }
         snakearr.unshift({ x: snakearr[0].x + velocity.x, y: snakearr[0].y + velocity.y });
         var x = window.matchMedia("(max-width: 700px)");
@@ -110,15 +110,15 @@ function Game() {
     board.appendChild(foodElement);
 }
 
-let hiscore = localStorage.getItem("hiscore");
-if (hiscore === null) {
-    hiscoreval = 0;
-    localStorage.setItem("hiscore", JSON.stringify(hiscoreval));
+let highscore = localStorage.getItem("highscore");
+if (highscore === null) {
+    highscoreval = 0;
+    localStorage.setItem("highscore", JSON.stringify(highscoreval));
 }
 else {
-    hiscoreval = JSON.parse(hiscore);
-    localStorage.setItem("hiscore", JSON.stringify(hiscoreval));
-    hiscoreBox.innerHTML = "HiScore: " + hiscore;
+    highscoreval = JSON.parse(highscore);
+    localStorage.setItem("highscore", JSON.stringify(highscoreval));
+    highscoreBox.innerHTML = "HighScore: " + highscore;
 }
 
 window.requestAnimationFrame(main);
