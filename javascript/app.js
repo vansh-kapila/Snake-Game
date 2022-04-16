@@ -4,12 +4,11 @@ let snakearr = [
 ];
 let food = { x: 8, y: 6 };
 let speed = 12;
-let score = 0;
+let score = 19;
 let lastPaintTime = 0;
 const music = new Audio('song.mp3');
 const mediaQuery = window.matchMedia('(max-width: 480px)');
 const eat = new Audio('snake-eat.wav');
-const move = new Audio('move.mp3');
 if (mediaQuery.matches) {
     speed = 7;
 }
@@ -77,7 +76,6 @@ function Game() {
         else {
             speed += 0.6;
         }
-        console.log(speed);
     }
 
     for (let i = snakearr.length - 2; i >= 0; i--) {
@@ -123,22 +121,18 @@ window.addEventListener('keydown', e => {
     if (e.key == "ArrowUp") {
         velocity.x = 0;
         velocity.y = -1;
-        move.play();
     }
     if (e.key === "ArrowLeft") {
         velocity.x = -1;
         velocity.y = 0;
-        move.play();
     }
     if (e.key === "ArrowRight") {
         velocity.x = 1;
         velocity.y = 0;
-        move.play();
     }
     if (e.key === "ArrowDown") {
         velocity.x = 0;
         velocity.y = 1;
-        move.play();
     }
 });
 
@@ -176,21 +170,17 @@ function handleTouchMove(evt) {
         if (xDiff > 0) {
             velocity.x = -1;
             velocity.y = 0;
-            move.play();
         } else {
             velocity.x = 1;
             velocity.y = 0;
-            move.play();
         }
     } else {
         if (yDiff > 0) {
             velocity.x = 0;
             velocity.y = -1;
-            move.play();
         } else {
             velocity.x = 0;
             velocity.y = 1;
-            move.play();
         }
     }
     /* reset values */
